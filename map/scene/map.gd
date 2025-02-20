@@ -49,4 +49,3 @@ func load_chunk(chunk_pos: Vector2):
 func unload_chunk(chunk_pos: Vector2):
 	# Erase all tiles within this chunk
 	active_chunks.erase(chunk_pos)
-

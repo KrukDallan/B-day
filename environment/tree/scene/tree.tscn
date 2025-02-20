@@ -3,6 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://u4fdnwu51ng0" path="res://environment/tree/assets/AnimatedAutum.png" id="1_8dluq"]
 [ext_resource type="Script" path="res://environment/tree/scene/tree.gd" id="2_oeh2t"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yh86u"]
+radius = 30.0
+height = 304.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_41ay1"]
+radius = 90.0
+height = 216.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_m800i"]
 atlas = ExtResource("1_8dluq")
 region = Rect2(0, 0, 64, 64)
@@ -123,23 +131,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yh86u"]
-radius = 30.0
-height = 304.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_41ay1"]
-radius = 90.0
-height = 216.0
-
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_mask = 3
 script = ExtResource("2_oeh2t")
-
-[node name="Tree" type="AnimatedSprite2D" parent="."]
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_opkl4")
-frame = 10
-frame_progress = 0.257286
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yh86u")
@@ -147,3 +141,9 @@ shape = SubResource("CapsuleShape2D_yh86u")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(2, -22)
 shape = SubResource("CapsuleShape2D_41ay1")
+
+[node name="Tree" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_opkl4")
+frame = 10
+frame_progress = 0.257286
