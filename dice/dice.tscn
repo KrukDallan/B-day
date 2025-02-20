@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cra5w3o1kyu4e"]
+[gd_scene load_steps=17 format=3 uid="uid://cra5w3o1kyu4e"]
 
 [ext_resource type="Texture2D" uid="uid://xovfytm4rxtj" path="res://dice/sprite/six sided die.png" id="1_3kw7a"]
 [ext_resource type="Script" path="res://dice/dice.gd" id="2_o6yrt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5xxov"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6a6cl"]
 atlas = ExtResource("1_3kw7a")
@@ -126,11 +128,11 @@ animations = [{
 }]
 
 [node name="dice" type="AnimatedSprite2D"]
+modulate = Color(0.721569, 0.866667, 1, 1)
+material = SubResource("CanvasItemMaterial_5xxov")
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_5h1i2")
-animation = &"roll"
-frame = 5
-frame_progress = 0.0493135
+animation = &"1"
 script = ExtResource("2_o6yrt")
 
 [node name="Timer" type="Timer" parent="."]
