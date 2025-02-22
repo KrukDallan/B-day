@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsthjpvl2d3ik"]
+
+[ext_resource type="Texture2D" uid="uid://cvbj8qjfmaksh" path="res://wizard/assets/evil.png" id="1_pjcsv"]
+[ext_resource type="Texture2D" uid="uid://brxa6nclrky8m" path="res://wizard/assets/happy.png" id="2_taq1a"]
+[ext_resource type="Texture2D" uid="uid://63drx6ds2lam" path="res://wizard/assets/pondering.png" id="3_ses7l"]
+[ext_resource type="Texture2D" uid="uid://bhrr7dcliv81" path="res://wizard/assets/terrified.png" id="4_6vnax"]
+[ext_resource type="Script" path="res://wizard/wizard.gd" id="5_4g4hl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qxdy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pjcsv")
+}],
+"loop": true,
+"name": &"evil",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_taq1a")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ses7l")
+}],
+"loop": true,
+"name": &"pondering",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6vnax")
+}],
+"loop": true,
+"name": &"terrified",
+"speed": 5.0
+}]
+
+[node name="Wizard" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8qxdy")
+animation = &"evil"
+script = ExtResource("5_4g4hl")

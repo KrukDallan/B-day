@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://bvhw3p7an4er5"]
+
+[ext_resource type="Texture2D" uid="uid://bmak58ausyfeg" path="res://obstacles/doors/assets/Doors.png" id="1_34g7s"]
+[ext_resource type="Script" path="res://obstacles/doors/doors.gd" id="2_ladet"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn8kb"]
+atlas = ExtResource("1_34g7s")
+region = Rect2(12, 92, 71, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcxxq"]
+atlas = ExtResource("1_34g7s")
+region = Rect2(12, 161, 71, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1lac"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn8kb")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcxxq")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqsn7"]
+size = Vector2(42.25, 323)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdrdp"]
+size = Vector2(217, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nk6h7"]
+size = Vector2(47, 317.25)
+
+[sub_resource type="LabelSettings" id="LabelSettings_itl8u"]
+font_size = 34
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ngfd2"]
+radius = 128.004
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_mask = 2
+script = ExtResource("2_ladet")
+
+[node name="Door" type="AnimatedSprite2D" parent="."]
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_y1lac")
+animation = &"closed"
+
+[node name="OpenCS-L" type="CollisionShape2D" parent="."]
+position = Vector2(-88.125, -16.5)
+shape = SubResource("RectangleShape2D_kqsn7")
+
+[node name="ClosedCS" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 75)
+shape = SubResource("RectangleShape2D_bdrdp")
+
+[node name="OpenCS-R" type="CollisionShape2D" parent="."]
+position = Vector2(85, -17.375)
+shape = SubResource("RectangleShape2D_nk6h7")
+
+[node name="Message" type="Label" parent="."]
+visible = false
+offset_left = -303.0
+offset_top = -202.0
+offset_right = 321.0
+offset_bottom = -155.0
+text = "Roll an even number to open the door"
+label_settings = SubResource("LabelSettings_itl8u")
+
+[node name="ApproachArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="DisplayTextCS" type="CollisionShape2D" parent="ApproachArea"]
+position = Vector2(0, 155)
+shape = SubResource("CircleShape2D_ngfd2")
+
+[connection signal="body_entered" from="ApproachArea" to="." method="_on_approach_area_body_entered"]
+[connection signal="body_exited" from="ApproachArea" to="." method="_on_approach_area_body_exited"]

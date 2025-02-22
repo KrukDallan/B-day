@@ -127,8 +127,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="dice" type="AnimatedSprite2D"]
-modulate = Color(0.721569, 0.866667, 1, 1)
+[node name="dice" type="AnimatedSprite2D" groups=["Dice"]]
+modulate = Color(0.945645, 0.973638, 1, 1)
 material = SubResource("CanvasItemMaterial_5xxov")
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_5h1i2")
