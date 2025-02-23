@@ -121,5 +121,5 @@ func show_statue_dialogue():
 			$Text.text += word + " "
 			await get_tree().create_timer(typing_speed).timeout
 		await get_tree().create_timer(2).timeout
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(1.5).timeout
 	visible = false

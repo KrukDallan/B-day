@@ -16,6 +16,8 @@ var second_score_reached = false
 var target_nuke_y = -1498
 
 var statue_interacted = false
+
+var bDayText = "Happy \nBirthday!!!!"
 func _ready():
 	pass
 
@@ -34,8 +36,6 @@ func _process(delta):
 				current_score -= last_roll
 				my_roll_id = last_roll_id
 			$Control/Challenge/Current.text = str(current_score)
-			if not first_score_reached:
-				current_score = 21
 	if abs(current_score - 21) < 7 and not wiz_animation_changed:
 		print("Changing animation")
 		var wiz = $Wizard
@@ -95,4 +95,11 @@ func _on_statue_area_2d_body_entered(body: Node2D) -> void:
 		if not statue_interacted:
 			$Player.set_can_move(false)
 			statue_interacted = true
-			body.show_statue_dialogue()
+			await body.show_statue_dialogue()
+			$BDayLabel.text = ""
+			$BDayLabel.visible = true
+			var words = bDayText.split(" ")
+			for word in words:
+				for letter in word.split():
+					$BDayLabel.text += letter + " "
+					await get_tree().create_timer(0.7).timeout
