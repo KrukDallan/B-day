@@ -2,10 +2,12 @@ extends Panel
 
 var typing_speed = 0.05
 
-var wizard_text: String = "I'm the very-well-animated-wizard#And you are?
-#Ahh I see, you are a loser eheheh#I bet you don't have cool animations like this one, watch!#Cool right?#
+var wizard_text: String = "I'm the Very-Well-Animated-Wizard#And you are?
+#Ahh, I see, you are a loser eheheh#I bet you don't have cool animations like this one, watch!#Cool right?#
 If you want to reach the statue of the goddess that lies ahead, 
 you must first roll your die and reach this sum eheheh"
+
+var wizard_text2: String = "You thought I would let you win this easily? Ehehe"
 
 var phrase_face: Dictionary = {}
 var phrases: Array = []
@@ -50,15 +52,26 @@ func show_text():
 			await get_tree().create_timer(typing_speed).timeout
 		await get_tree().create_timer(1).timeout
 		if next_idx == 4:
-			var node = get_tree().get_nodes_in_group("Wizard")[0]
-			node.flip()
+			var nodes = get_tree().get_nodes_in_group("Wizard")
+			for node in nodes:
+				node.flip()
 			await get_tree().create_timer(2).timeout
-		print(next_idx, " ",len(phrase_face.keys()))
+		#print(next_idx, " ",len(phrase_face.keys()))
 		if next_idx == len(phrase_face.keys()):
-			await get_tree().create_timer(2).timeout
+			await get_tree().create_timer(1).timeout
 			visible = false	
 			if map:
 				map.activate_challenge()
-			
+				
+func show_second_wiz_text():
+	visible = true
+	$Text.text = ""
+	var words = wizard_text2.split(" ")
+	for word in words:
+		$Text.text += word + " "
+		await get_tree().create_timer(typing_speed).timeout
+	await get_tree().create_timer(3).timeout
+	visible = false
+	
 func activate_dialogue():
 	can_start = true

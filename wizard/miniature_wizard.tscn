@@ -41,7 +41,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MiniatureWizard" type="AnimatedSprite2D"]
+[node name="MiniatureWizard" type="AnimatedSprite2D" groups=["Wizard"]]
 sprite_frames = SubResource("SpriteFrames_va4mg")
 animation = &"evil"
 script = ExtResource("5_ncust")

@@ -305,7 +305,7 @@ offset_right = 158.0
 offset_bottom = 87.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Press N to nuke the wizard."
+text = "Press N to NUKE the wizard."
 label_settings = SubResource("LabelSettings_8qme6")
 
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

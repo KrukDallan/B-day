@@ -6,8 +6,8 @@ signal continue_dialogue
 var sprite: AnimatedSprite2D = $Character
 var music_ended = false
 @export
-var speed: int = 6
-
+var speed: int = 10
+var can_move = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,15 +36,20 @@ func _process(delta):
 	if Input.is_action_pressed("sprint"):
 		speed = 12
 	
-
 	#direction = direction.normalized() * speed
-	self.position += direction * speed
+	#self.position += direction * speed
 	#velocity = direction * speed
-	move_and_collide(direction)
+	if can_move:
+		move_and_collide(direction*speed)
 	
+func set_can_move(value: bool):
+	can_move = value
 	
 func _on_audio_stream_player_2d_finished() -> void:
 	music_ended = true
+	
+func stop_music():
+	$AudioStreamPlayer2D.stop()
 	
 func show_next_wizard_dialogue(is_first:bool=false):
 	if is_first:
@@ -53,7 +58,8 @@ func show_next_wizard_dialogue(is_first:bool=false):
 		await get_tree().create_timer(0.3).timeout
 		$Control/Dialogue.activate_dialogue()
 		
-
-	
+func show_second_wizard_dialogue():
+	$Control/Dialogue.show_second_wiz_text()
+		
 func show_nuke_dialog():
 	$Control/SelfDialogue.show_text("Press N to nuke the wizard.")

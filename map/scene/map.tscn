@@ -1578,6 +1578,7 @@ position = Vector2(535, 398.571)
 shape = SubResource("RectangleShape2D_5h8ko")
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
