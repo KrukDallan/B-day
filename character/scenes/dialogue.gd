@@ -8,6 +8,8 @@ If you want to reach the statue of the goddess that lies ahead,
 you must first roll your die and reach this sum eheheh"
 
 var wizard_text2: String = "You thought I would let you win this easily? Ehehe"
+var wizard_text3: String = "Oooops, try again ehehe"
+var wizard_text4: String = "...... WAIT WHAT??"
 
 var phrase_face: Dictionary = {}
 var phrases: Array = []
@@ -72,6 +74,34 @@ func show_second_wiz_text():
 		await get_tree().create_timer(typing_speed).timeout
 	await get_tree().create_timer(3).timeout
 	visible = false
+	
+func show_third_wiz_text():
+	visible = true
+	$Text.text = ""
+	var words = wizard_text3.split(" ")
+	for word in words:
+		$Text.text += word + " "
+		await get_tree().create_timer(typing_speed).timeout
+	await get_tree().create_timer(3).timeout
+	visible = false
+	
+func show_last_wiz_text():
+	var player = get_tree().get_first_node_in_group("Player")
+	player.stop_music()
+	visible = true
+	var nodes = get_tree().get_nodes_in_group("Wizard")
+	for node in nodes:
+		node.change_animation("terrified")
+	$Text.text = ""
+	var words = wizard_text4.split(" ")
+	for word in words:
+		$Text.text += word + " "
+		await get_tree().create_timer(typing_speed).timeout
+	await get_tree().create_timer(3).timeout
+	visible = false
+	for node in nodes:
+		node.show_shadow()
+
 	
 func activate_dialogue():
 	can_start = true

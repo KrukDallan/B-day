@@ -43,6 +43,7 @@ func _process(delta):
 		move_and_collide(direction*speed)
 	
 func set_can_move(value: bool):
+	print("set")
 	can_move = value
 	
 func _on_audio_stream_player_2d_finished() -> void:
@@ -60,6 +61,11 @@ func show_next_wizard_dialogue(is_first:bool=false):
 		
 func show_second_wizard_dialogue():
 	$Control/Dialogue.show_second_wiz_text()
+	
+func show_third_wizard_dialogue():
+	$Control/Dialogue.show_third_wiz_text()
 		
 func show_nuke_dialog():
 	$Control/SelfDialogue.show_text("Press N to nuke the wizard.")
+	#await get_tree().create_timer(3).timeout
+	#$Control/Dialogue.show_last_wiz_text()

@@ -3,7 +3,8 @@ extends AnimatedSprite2D
 signal flipped
 
 var has_flipped = false
-
+var max_scale = 10
+var enlarge_shadow = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -11,8 +12,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	if enlarge_shadow:
+		if $Shadow.scale[0] < max_scale:
+			$Shadow.scale[0] += 0.01
+			$Shadow.scale[1] += 0.01
+		if $Shadow.scale[0] >= max_scale:
+			print("Moving nuke")
+			enlarge_shadow = false
+			var node = get_tree().get_first_node_in_group("Map")
+			node.move_nuke()
+			
 func change_animation(anim_name:String):
 	self.play(anim_name)
 	
@@ -25,3 +34,7 @@ func flip():
 		await get_tree().create_timer(0.5).timeout
 		self.flip_h = false
 		flipped.emit()
+		
+func show_shadow():
+	$Shadow.visible = true
+	enlarge_shadow = true

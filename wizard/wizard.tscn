@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsthjpvl2d3ik"]
+[gd_scene load_steps=9 format=3 uid="uid://dsthjpvl2d3ik"]
 
 [ext_resource type="Texture2D" uid="uid://cvbj8qjfmaksh" path="res://wizard/assets/evil.png" id="1_pjcsv"]
 [ext_resource type="Texture2D" uid="uid://brxa6nclrky8m" path="res://wizard/assets/happy.png" id="2_taq1a"]
 [ext_resource type="Texture2D" uid="uid://63drx6ds2lam" path="res://wizard/assets/pondering.png" id="3_ses7l"]
 [ext_resource type="Texture2D" uid="uid://bhrr7dcliv81" path="res://wizard/assets/terrified.png" id="4_6vnax"]
 [ext_resource type="Script" path="res://wizard/wizard.gd" id="5_4g4hl"]
+[ext_resource type="Texture2D" uid="uid://bqp83wo26y00p" path="res://wizard/assets/shadow.png" id="6_c7b7w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8qxdy"]
 animations = [{
@@ -41,7 +42,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r6thu"]
+
 [node name="Wizard" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_8qxdy")
 animation = &"evil"
 script = ExtResource("5_4g4hl")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.52549)
+material = SubResource("CanvasItemMaterial_r6thu")
+position = Vector2(-17, 121)
+scale = Vector2(1, 1.085)
+texture = ExtResource("6_c7b7w")

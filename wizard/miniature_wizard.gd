@@ -15,3 +15,6 @@ func change_animation(anim_name:String):
 	
 func flip():
 	return 
+	
+func show_shadow():
+	pass

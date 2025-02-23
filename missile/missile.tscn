@@ -1,0 +1,108 @@
+[gd_scene load_steps=16 format=3 uid="uid://cxeicxiu2pgh6"]
+
+[ext_resource type="Texture2D" uid="uid://uo8jrrqykva" path="res://missile/assets/missile.png" id="1_mibma"]
+[ext_resource type="Texture2D" uid="uid://bxui3mbcjj0wi" path="res://missile/assets/spritsheet.png" id="2_yq8li"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpqkm"]
+atlas = ExtResource("2_yq8li")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ajb5"]
+atlas = ExtResource("2_yq8li")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akps7"]
+atlas = ExtResource("2_yq8li")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dol2e"]
+atlas = ExtResource("2_yq8li")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41jt5"]
+atlas = ExtResource("2_yq8li")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc68f"]
+atlas = ExtResource("2_yq8li")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ar41"]
+atlas = ExtResource("2_yq8li")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcq2g"]
+atlas = ExtResource("2_yq8li")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf0xb"]
+atlas = ExtResource("2_yq8li")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n23y2"]
+atlas = ExtResource("2_yq8li")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvxv2"]
+atlas = ExtResource("2_yq8li")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lksn2"]
+atlas = ExtResource("2_yq8li")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0w0l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mibma")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpqkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ajb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akps7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dol2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41jt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc68f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ar41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcq2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf0xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n23y2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvxv2")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_lksn2")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 8.0
+}]
+
+[node name="Missile" type="AnimatedSprite2D"]
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_s0w0l")

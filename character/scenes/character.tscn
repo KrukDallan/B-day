@@ -180,7 +180,7 @@ corner_radius_bottom_left = 2
 [sub_resource type="LabelSettings" id="LabelSettings_8qme6"]
 font_size = 24
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 script = ExtResource("2_voiql")
 
@@ -236,7 +236,7 @@ text = "R
 "
 label_settings = SubResource("LabelSettings_8c1oe")
 
-[node name="Dialogue" type="Panel" parent="Control"]
+[node name="Dialogue" type="Panel" parent="Control" groups=["Dialogue"]]
 visible = false
 layout_mode = 0
 offset_left = -545.0
@@ -292,7 +292,7 @@ offset_bottom = 599.0
 theme_override_styles/panel = ExtResource("5_b8iy8")
 script = ExtResource("8_imlla")
 
-[node name="Label" type="Label" parent="Control/SelfDialogue"]
+[node name="Text" type="Label" parent="Control/SelfDialogue"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
