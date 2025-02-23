@@ -14,6 +14,8 @@ var wiz_animation_changed: bool = false
 var first_score_reached = false
 var second_score_reached = false
 var target_nuke_y = -1498
+
+var statue_interacted = false
 func _ready():
 	pass
 
@@ -83,10 +85,14 @@ func move_nuke():
 	$Wizard.visible = false
 	$Control.visible = false
 	$Player.set_can_move(true)
-	
+	$Player/AudioStreamPlayer2D.play()
 			
 
 
 func _on_statue_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		pass
+		#$Control/StatuePanel.visible = true
+		if not statue_interacted:
+			$Player.set_can_move(false)
+			statue_interacted = true
+			body.show_statue_dialogue()

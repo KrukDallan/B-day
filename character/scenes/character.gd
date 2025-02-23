@@ -69,3 +69,7 @@ func show_nuke_dialog():
 	$Control/SelfDialogue.show_text("Press N to nuke the wizard.")
 	#await get_tree().create_timer(3).timeout
 	#$Control/Dialogue.show_last_wiz_text()
+
+func show_statue_dialogue():
+	print("A")
+	$Control/Dialogue.show_statue_dialogue()

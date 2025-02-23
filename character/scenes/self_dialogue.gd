@@ -1,7 +1,7 @@
 extends Panel
 
 
-var typing_speed = 0.03
+var typing_speed = 0.01
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

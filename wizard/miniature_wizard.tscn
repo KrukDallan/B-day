@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://daq4ldarwnq38"]
+[gd_scene load_steps=8 format=3 uid="uid://daq4ldarwnq38"]
 
 [ext_resource type="Texture2D" uid="uid://bjubg7xt680c7" path="res://wizard/assets/evil-miniature.png" id="1_4ins7"]
 [ext_resource type="Texture2D" uid="uid://cx2dc8wsm0rsi" path="res://wizard/assets/happy-miniature.png" id="2_xvhh5"]
 [ext_resource type="Texture2D" uid="uid://dfdqqfcsvhjy6" path="res://wizard/assets/pondering-miniature.png" id="3_mrf4h"]
 [ext_resource type="Texture2D" uid="uid://iiualh3hljf7" path="res://wizard/assets/terrified-miniature.png" id="4_4tfck"]
+[ext_resource type="Texture2D" uid="uid://dej26g8k2wifo" path="res://wizard/assets/statue.png" id="4_nemvc"]
 [ext_resource type="Script" path="res://wizard/miniature_wizard.gd" id="5_ncust"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_va4mg"]
@@ -30,6 +31,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"pondering",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nemvc")
+}],
+"loop": true,
+"name": &"statue",
 "speed": 5.0
 }, {
 "frames": [{

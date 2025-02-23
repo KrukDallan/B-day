@@ -11,6 +11,8 @@ var wizard_text2: String = "You thought I would let you win this easily? Ehehe"
 var wizard_text3: String = "Oooops, try again ehehe"
 var wizard_text4: String = "...... WAIT WHAT??"
 
+var statue_text: String = "Great hero, thank you for defeating the Very-Well-Animated-Wizard.#
+Thanks to you, peace has returned in this world.#Please accept this gift as a token of our gratitude."
 var phrase_face: Dictionary = {}
 var phrases: Array = []
 var faces = ["evil","happy","evil","evil","evil","evil"]
@@ -105,3 +107,19 @@ func show_last_wiz_text():
 	
 func activate_dialogue():
 	can_start = true
+	
+func show_statue_dialogue():
+	$MiniaturePanel/MiniatureWizard.play("statue")
+	$MiniaturePanel/MiniatureWizard.position = Vector2(63.5,50.5)
+	$MiniaturePanel/MiniatureWizard.scale = Vector2(0.209,0.192)
+	visible = true
+	$Text.text = ""
+	var phrases = statue_text.split("#")
+	for phrase in phrases:
+		var words = phrase.split(" ")
+		for word in words:
+			$Text.text += word + " "
+			await get_tree().create_timer(typing_speed).timeout
+		await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(3).timeout
+	visible = false
