@@ -19,7 +19,7 @@ func change_animation(anim_name:String):
 func flip():
 	if true:#not has_flipped:
 		has_flipped = true
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(0.5).timeout
 		print("Flippin")
 		self.flip_h = true
 		await get_tree().create_timer(0.5).timeout

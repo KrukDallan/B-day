@@ -262,6 +262,14 @@ label_settings = SubResource("LabelSettings_hrlwm")
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
 
+[node name="Continue" type="Label" parent="Control/Dialogue"]
+layout_mode = 0
+offset_left = 933.0
+offset_top = 191.0
+offset_right = 1036.0
+offset_bottom = 222.0
+text = "(Press Enter)"
+
 [node name="MiniaturePanel" type="Panel" parent="Control/Dialogue"]
 layout_mode = 0
 offset_left = 12.0

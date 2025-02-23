@@ -61,6 +61,7 @@ shape = SubResource("RectangleShape2D_kqsn7")
 [node name="ClosedCS" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 75)
 shape = SubResource("RectangleShape2D_bdrdp")
+disabled = true
 
 [node name="OpenCS-R" type="CollisionShape2D" parent="."]
 position = Vector2(85, -17.375)

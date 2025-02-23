@@ -51,14 +51,7 @@ func show_next_wizard_dialogue(is_first:bool=false):
 		await get_tree().create_timer(0.3).timeout
 		$Control/Dialogue.visible = true
 		await get_tree().create_timer(0.3).timeout
-		$Control/Dialogue.show_text()
-		print("Player before emitting")
-		continue_dialogue.emit()
-		print("Player after emitting")
-	else:
-		$Control/Dialogue.show_text()
-		continue_dialogue.emit()
-		print("Player after emitting")
+		$Control/Dialogue.activate_dialogue()
 		
 
 	
