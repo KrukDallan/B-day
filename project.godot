@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1640
 window/size/viewport_height=1200
+window/size/window_width_override=1640
+window/size/window_height_override=1200
 
 [global_group]
 

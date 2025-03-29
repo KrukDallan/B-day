@@ -3,7 +3,7 @@ extends AnimatedSprite2D
 signal flipped
 
 var has_flipped = false
-var max_scale = 10
+var max_scale = 8
 var enlarge_shadow = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,8 +14,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if enlarge_shadow:
 		if $Shadow.scale[0] < max_scale:
-			$Shadow.scale[0] += 0.01
-			$Shadow.scale[1] += 0.01
+			$Shadow.scale[0] += 0.015
+			$Shadow.scale[1] += 0.015
 		if $Shadow.scale[0] >= max_scale:
 			print("Moving nuke")
 			enlarge_shadow = false
